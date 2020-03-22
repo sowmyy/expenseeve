@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
-import '../src/styles/App.css';
-
-class App extends Component {
+class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Expenseeve</h1>
+                Login page
             </div>
         )
     }
 }
 
-export default App;
+export default Login;
