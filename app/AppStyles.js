@@ -4,7 +4,7 @@ export const NavBar = styled.ul`
   list-style: none;
   margin: 0;
   height: 100%;
-  background-color: #ccc;
+  background-color: #EE6352;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,14 +12,14 @@ export const NavBar = styled.ul`
   li {
     padding-top: 15px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #aaa;
+    text-transform: uppercase;
     a {
-      color: black;
+      color: white;
       :hover {
         color: blue;
       }
       &.active {
-        color: blue;
+        color: white;
       }
     }
     &.logOut {
@@ -34,7 +34,7 @@ export const ContainerWrapper = styled.div`
 `;
 
 export const NavComponentStyle = styled.div`
-  width: 10%;
+  width: 5%;
   text-align: center;
   nav {
     height: 100%;

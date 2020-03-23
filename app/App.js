@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Containers/Home";
 import Settings from "./Containers/Settings";
+import ReactSVG from 'react-svg';
 import Profile from "./Containers/Profile";
+// import {homeIcon} from "./assets/home-run.svg";
 import {
   NavBar,
   NavComponentStyle,
@@ -20,17 +22,17 @@ export default class App extends Component {
               <NavBar>
                 <li>
                   <Link className="nav-link active" to="/">
-                    Home
+                    {/* <ReactSVG className="icon" path={homeIcon} /> */}H
                   </Link>
                 </li>
                 <li>
                   <Link className="nav-link" to="/settings">
-                    Settings
+                    S
                   </Link>
                 </li>
                 <li>
                   <Link className="nav-link" to="/profile">
-                    Profile
+                    P
                   </Link>
                 </li>
               </NavBar>
