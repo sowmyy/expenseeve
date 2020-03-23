@@ -1,0 +1,34 @@
+{
+    "ExpenseList": [
+    {
+      "category": "Grocery",
+      "itemName": "Bread",
+      "amount": "40",
+      "expenseDate": "25/02/2020"
+    },
+    {
+      "category": "Medical",
+      "itemName": "Tablets",
+      "amount": "150",
+      "expenseDate": "22/02/2020"
+    },
+    {
+      "category": "Vegetables",
+      "itemName": "general",
+      "amount": "250",
+      "expenseDate": "27/02/2020"
+    },
+    {
+      "category": "Miscellaneous",
+      "itemName": "misc.",
+      "amount": "500",
+      "expenseDate": null,
+    },
+    {
+      "category": "Grocery",
+      "itemName": "Eggs",
+      "amount": "50",
+      "expenseDate": "20/02/2020"
+    }
+  ]
+}
