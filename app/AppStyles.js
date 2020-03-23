@@ -14,7 +14,7 @@ export const NavBar = styled.ul`
     padding-bottom: 15px;
     text-transform: uppercase;
     a {
-      color: white;
+      color: #57241E;
       :hover {
         color: blue;
       }
@@ -41,5 +41,5 @@ export const NavComponentStyle = styled.div`
   }
 `;
 export const RenderSection = styled.div`
-  width: 70%;
+  width: 100%;
 `;

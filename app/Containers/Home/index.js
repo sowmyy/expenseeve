@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 const jsonData = require('../data.json');
+import { HomeStyles } from './style';
+import ListItem from './listItem';
 
 class Home extends Component {
     render() {
         return (
-            <div>
+            <HomeStyles>
               <ul>
-                {jsonData.ExpenseList.map((item) => {
-                  <li>{item.category}</li>
-                })}
+                {jsonData.ExpenseList.map((item) =>
+                  <ListItem data={item} />
+                )}
               </ul>
-              <div>testttttttttttt</div>
-            </div>
+            </HomeStyles>
         )
     }
 }
