@@ -3,22 +3,30 @@ import styled from 'styled-components';
 export const SettingsStyle = styled.div`
   ul {
     list-style: none;
+    display: flex;
     margin-top: 20px;
     li {
       font-size: 0.9rem;
       border: 1px solid #aaa;
-      border-radius: 15px;
-      width: 17%;
+      border-radius: 5px;
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
+      margin-right:15px;
       padding: 7px;
       padding-left: 10px;
+      .categoryName {
+        margin-right: 10px;
+      }
       .icon {
-        margin-right:10px;
+        cursor: pointer;
+        margin-right: 5px;
         svg {
           width: 10px;
           height: 10px;
+          path {
+            fill: red;
+          }
         }
       }
     }

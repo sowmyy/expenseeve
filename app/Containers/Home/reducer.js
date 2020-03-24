@@ -35,15 +35,21 @@ const initialstate = {
       "amount": "50",
       "expenseDate": "20/02/2020"
     }
+  ],
+  "CategoryList": [
+    'Grocery',
+    'Miscellanoeus',
+    'Vegetables',
+    'Medical',
   ]
 }
 
 function homereducer(state=initialstate, action) {
   switch (action.type) {
     case "ADD_CATEGORY":
-    const { ExpenseList } = state;
-    ExpenseList.push({ id: ExpenseList.length+1,  ...action.data });
-      return { ...state , ExpenseList };
+    const { CategoryList } = state;
+    CategoryList.push({ id: CategoryList.length+1,  ...action.data });
+      return { ...state , CategoryList };
     default:
       return state;
   }

@@ -17,14 +17,13 @@ class Settings extends Component {
   addCategory(e) {
     e.preventDefault();
     const name = this.myInput.value;
-    // console.log('name', name);
-    // if (this.state.value.length>0) {
       this.props.addCategory({
         category: name,
       })
       this.myInput.value = '';
-      // this.setState({value: ''});
-    // }
+  }
+  removeCategory(id) {
+    console.log('item', item.id);
   }
   render() {
       return (
@@ -41,10 +40,14 @@ class Settings extends Component {
             </CategoryAddSection>
             <h4 className="heading">Category List</h4>
             <ul>
-              {this.props.home.ExpenseList.map(item =>
+              {this.props.home.CategoryList.map((item) =>
                 <li>
-                  <div>{item.category} close</div>
-                  <ReactSVG className="icon" src={closeIcon} />
+                  <div className="categoryName">{item.category}</div>
+                  <a
+                    onClick={() => this.removeCategory(item.id)}
+                  >
+                    <ReactSVG className="icon" src={closeIcon} />
+                  </a>
                 </li>
               )}
             </ul>
