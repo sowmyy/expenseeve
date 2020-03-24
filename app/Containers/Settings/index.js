@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
-import jsonData from '../data.json';
+import { connect } from 'react-redux';
 import { SettingsStyle, CategoryAddSection } from './style';
 import { ReactSVG } from 'react-svg';
-// import closeIcon from 'assets/close.svg';
+
+import {AddCategory} from '../Home/actions.js';
+import closeIcon from 'assets/close.svg';
 
 class Settings extends Component {
   constructor(props) {
       super(props);
       this.state = {
-
       };
       this.addCategory = this.addCategory.bind(this);
+      this.myInput = null;
   }
   addCategory(e) {
     e.preventDefault();
-    const name = this.input.current.value;
-    console.log('name', name);
+    const name = this.myInput.value;
+    // console.log('name', name);
+    // if (this.state.value.length>0) {
+      this.props.addCategory({
+        category: name,
+      })
+      this.myInput.value = '';
+      // this.setState({value: ''});
+    // }
   }
   render() {
       return (
@@ -24,7 +33,7 @@ class Settings extends Component {
             <CategoryAddSection>
               <input
                 id="myInput"
-                ref={(ref) => (this.myInput = ref)}
+                ref={(ref) => {this.myInput = ref}}
                 className="textBox"
                 type="text"
               />
@@ -32,10 +41,10 @@ class Settings extends Component {
             </CategoryAddSection>
             <h4 className="heading">Category List</h4>
             <ul>
-              {jsonData.ExpenseList.map(item =>
+              {this.props.home.ExpenseList.map(item =>
                 <li>
                   <div>{item.category} close</div>
-                  {/* <ReactSVG className="icon" src={closeIcon} /> */}
+                  <ReactSVG className="icon" src={closeIcon} />
                 </li>
               )}
             </ul>
@@ -44,4 +53,14 @@ class Settings extends Component {
   }
 }
 
-export default Settings;
+const mapStateToProps = (state) => ({
+  home: state.homeReducer,
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addCategory: (data) => dispatch(AddCategory(data)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

@@ -3,6 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './app/index.js',
+    resolve: {
+  		modules: [
+        path.resolve(process.cwd(), 'app'), path.resolve(process.cwd(), 'node_modules')
+      ],
+  		extensions: ['.mjs', '.js',],
+  		mainFields: ['browser', 'module', 'main']
+	   },
     output: {
         path: path.join(__dirname, './dist'),
         filename: 'index_bundle.js',
