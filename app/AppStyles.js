@@ -13,13 +13,24 @@ export const NavBar = styled.ul`
     padding-top: 15px;
     padding-bottom: 15px;
     text-transform: uppercase;
-    a {
-      color: #57241E;
-      :hover {
-        color: blue;
+    .icon svg {
+      width: 25px;
+      height: 25px;
+      path {
+        transition: all 0.2s ease-in-out;
+        fill: #57241E;
       }
-      &.active {
-        color: white;
+    }
+    a.active {
+      svg {
+        path {
+          fill: white;
+        }
+      }
+    }
+    .icon svg:hover {
+      path {
+        fill: white;
       }
     }
     &.logOut {

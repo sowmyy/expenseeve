@@ -17,14 +17,14 @@
     {
       "id": 3,
       "category": "Vegetables",
-      "itemName": "general",
+      "itemName": "General",
       "amount": "250",
       "expenseDate": "27/02/2020"
     },
     {
       "id": 4,
       "category": "Miscellaneous",
-      "itemName": "misc.",
+      "itemName": "Misc.",
       "amount": "500",
       "expenseDate": null
     },

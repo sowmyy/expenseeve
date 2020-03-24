@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Containers/Home";
 import Settings from "./Containers/Settings";
-import ReactSVG from 'react-svg';
 import Profile from "./Containers/Profile";
-// import {homeIcon} from "./assets/home-run.svg";
+import { ReactSVG } from 'react-svg';
+import homeIcon from "./assets/home-run.svg";
+import settingsIcon from "./assets/settings.svg";
+import profileIcon from "./assets/user.svg";
 import {
   NavBar,
   NavComponentStyle,
@@ -21,18 +23,18 @@ export default class App extends Component {
             <nav className="nav flex-column">
               <NavBar>
                 <li>
-                  <Link className="nav-link active" to="/">
-                    {/* <ReactSVG className="icon" path={homeIcon} /> */}H
+                  <Link className='nav-link active' to="/">
+                    <ReactSVG className="icon" src={homeIcon} />
                   </Link>
                 </li>
                 <li>
-                  <Link className="nav-link" to="/settings">
-                    S
+                  <Link className='nav-link' to="/settings">
+                    <ReactSVG className="icon" src={settingsIcon} />
                   </Link>
                 </li>
                 <li>
-                  <Link className="nav-link" to="/profile">
-                    P
+                  <Link className='nav-link' to="/profile">
+                    <ReactSVG className="icon" src={profileIcon} />
                   </Link>
                 </li>
               </NavBar>

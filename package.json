@@ -28,8 +28,10 @@
     "file-loader": "^6.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-svg": "^11.0.15",
+    "redux": "^4.0.5",
     "styled-components": "^5.0.1",
     "url-loader": "^4.0.0"
   }

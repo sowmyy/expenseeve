@@ -9,7 +9,7 @@ class Home extends Component {
             <HomeStyles>
               <ul>
                 {jsonData.ExpenseList.map((item) =>
-                  <ListItem data={item} />
+                  <ListItem key={item.id} data={item} />
                 )}
               </ul>
             </HomeStyles>
