@@ -8,10 +8,19 @@ export const SettingsStyle = styled.div`
       font-size: 0.9rem;
       border: 1px solid #aaa;
       border-radius: 15px;
-      width: 15%;
+      width: 17%;
+      display: flex;
+      justify-content: space-between;
       margin-top: 10px;
       padding: 7px;
       padding-left: 10px;
+      .icon {
+        margin-right:10px;
+        svg {
+          width: 10px;
+          height: 10px;
+        }
+      }
     }
   }
   .heading {
