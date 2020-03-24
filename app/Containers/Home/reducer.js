@@ -37,19 +37,39 @@ const initialstate = {
     }
   ],
   "CategoryList": [
-    'Grocery',
-    'Miscellanoeus',
-    'Vegetables',
-    'Medical',
+    {
+      "id": 1,
+      "category": "Grocery"
+    },
+    {
+      "id": 2,
+      "category": "Medical"
+    },
+    {
+      "id": 3,
+      "category": "Miscellaneous"
+    },
+    {
+      "id": 4,
+      "category": "Vegetables"
+    }
   ]
 }
 
 function homereducer(state=initialstate, action) {
   switch (action.type) {
     case "ADD_CATEGORY":
-    const { CategoryList } = state;
-    CategoryList.push({ id: CategoryList.length+1,  ...action.data });
-      return { ...state , CategoryList };
+      const { CategoryList } = state;
+      CategoryList.push({ id: CategoryList.length + 1,  ...action.data });
+      return { ...state, CategoryList };
+    case "ADD_EXPENSE":
+      const { ExpenseList } = state;
+      ExpenseList.push({ id: ExpenseList.length + 1, ...action.data });
+      return { ...state, ExpenseList };
+    case "REMOVE_CATEGORY":
+      const { CategoryList } = state;
+      const newList = CategoryList.filter(expense => expense.id === action.data);
+      return { ...state, CategoryList};
     default:
       return state;
   }
