@@ -53,4 +53,5 @@ export const NavComponentStyle = styled.div`
 `;
 export const RenderSection = styled.div`
   width: 100%;
+  overflow-y: scroll;
 `;

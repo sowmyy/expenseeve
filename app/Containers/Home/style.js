@@ -1,7 +1,68 @@
 import styled from 'styled-components';
 
+export const ExpenseCard = styled.div`
+  width: 30%;
+  background: #efefef;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  .circle-wrap {
+    margin: 50px auto;
+    width: 150px;
+    height: 150px;
+    background: #e6e2e7;
+    border-radius: 50%;
+  }
+
+  .circle-wrap .circle .mask,
+  .circle-wrap .circle .fill {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .circle-wrap .circle .mask {
+    clip: rect(0px, 150px, 150px, 75px);
+  }
+
+  .circle-wrap .circle .mask .fill {
+    clip: rect(0px, 75px, 150px, 0px);
+    background-color: #EE6352;
+  }
+
+  .circle-wrap .circle .mask.full,
+  .circle-wrap .circle .fill {
+    animation: fill ease-in-out 1s;
+    transform: rotate(${(props) => props.circleProgress}deg);
+  }
+
+  @keyframes fill {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(${(props) => props.circleProgress}deg);
+    }
+  }
+
+  .circle-wrap .inside-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #fff;
+    line-height: 130px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: absolute;
+    z-index: 100;
+    font-weight: 700;
+    font-size: 2em;
+  }
+`;
+
 export const ModalForm = styled.form`
-  input[type=text], select {
+  input[type=date], input[type=text], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -12,7 +73,7 @@ export const ModalForm = styled.form`
   }
   input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #EE6352;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -21,7 +82,7 @@ export const ModalForm = styled.form`
     cursor: pointer;
   }
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #C35244;
   }
   div {
     border-radius: 5px;
@@ -32,22 +93,33 @@ export const ModalForm = styled.form`
 
 export const HomeStyles = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 50px;
+    padding-top: 0px;
+    padding: 30px;
     ul {
-      width: 100%;
+      width: 95%;
       border: 1px solid #ddd;
       padding: 0;
     }
     .container {
+      padding-left: 0;
+      margin-bottom: 15px;
       .btn {
         border: 1px solid #ddd;
-        background-color: #fff;
-        padding: 1em 1.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        background-color: #EE6352;
+        margin-top: 5px;
+        padding: 0.6em 1.2em;
         border-radius: 5px;
         text-decoration: none;
         i {
           padding-right: 0.3em;
+        }
+        &:hover {
+          background-color: #C35244;
         }
       }
     }
@@ -59,14 +131,11 @@ export const HomeStyles = styled.div`
       bottom: 0;
       left: 0;
       z-index: 999;
-      visibility: hidden;
-      opacity: 0;
-      pointer-events: none;
       transition: all 0.3s;
       .modal-close {
+        cursor: pointer;
         color: #aaa;
         line-height: 50px;
-        font-size: 80%;
         position: absolute;
         right: 0;
         text-align: center;
@@ -112,11 +181,10 @@ export const HomeStyles = styled.div`
     }
 `;
 
-export const Modal = styled.div`
-
-`;
-
 export const ListItemStyles = styled.li`
+    ${(props) => props.heading && 'background-color: #EE6352'};
+    ${(props) => props.heading && 'color: white'};
+    ${(props) => props.heading && 'font-weight: bold'};
     display: flex;
     p {
       margin-right: 15%;

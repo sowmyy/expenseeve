@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { SettingsStyle, CategoryAddSection } from './style';
 import { ReactSVG } from 'react-svg';
 
-import {AddCategory} from '../Home/actions.js';
+import { AddCategory, RemoveCategory } from '../Home/actions.js';
 import closeIcon from 'assets/close.svg';
 
 class Settings extends Component {
@@ -12,19 +12,19 @@ class Settings extends Component {
       this.state = {
       };
       this.addCategory = this.addCategory.bind(this);
+      this.removeCategory = this.removeCategory.bind(this);
       this.myInput = null;
   }
   addCategory(e) {
     e.preventDefault();
     const name = this.myInput.value;
-    // console.log('name', name);
-    // if (this.state.value.length>0) {
       this.props.addCategory({
         category: name,
       })
       this.myInput.value = '';
-      // this.setState({value: ''});
-    // }
+  }
+  removeCategory(id) {
+    this.props.removeCategory(id);
   }
   render() {
       return (
@@ -41,10 +41,10 @@ class Settings extends Component {
             </CategoryAddSection>
             <h4 className="heading">Category List</h4>
             <ul>
-              {this.props.home.ExpenseList.map(item =>
+              {this.props.home.CategoryList.map(item =>
                 <li>
-                  <div>{item.category} close</div>
-                  <ReactSVG className="icon" src={closeIcon} />
+                  <div className="categoryName">{item.category}</div>
+                  <a onClick={() => this.removeCategory(item.id)}><ReactSVG className="icon" src={closeIcon} /></a>
                 </li>
               )}
             </ul>
@@ -60,6 +60,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => {
   return {
     addCategory: (data) => dispatch(AddCategory(data)),
+    removeCategory: (data) => dispatch(RemoveCategory(data))
   }
 }
 

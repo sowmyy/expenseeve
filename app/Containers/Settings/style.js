@@ -4,21 +4,28 @@ export const SettingsStyle = styled.div`
   ul {
     list-style: none;
     margin-top: 20px;
+    display: flex;
     li {
       font-size: 0.9rem;
       border: 1px solid #aaa;
-      border-radius: 15px;
-      width: 17%;
+      border-radius: 5px;
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
+      margin-right: 20px;
       padding: 7px;
       padding-left: 10px;
+      .categoryName {
+        margin-right: 10px;
+      }
       .icon {
-        margin-right:10px;
+        cursor: pointer;
         svg {
           width: 10px;
           height: 10px;
+          path {
+            fill: red;
+          }
         }
       }
     }
