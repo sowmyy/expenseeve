@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "../app/App.js";
+import MainApp from "../app/MainApp.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
 import "./globalStyles.css";
@@ -15,7 +16,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <MainApp />
   </Provider>,
   document.getElementById("root")
 );

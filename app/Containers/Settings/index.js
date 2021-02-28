@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { SettingsStyle, CategoryAddSection } from './style';
 import { ReactSVG } from 'react-svg';
 
-import {AddCategory} from '../Home/actions.js';
+import { AddCategory, RemoveCategory } from '../Home/actions.js';
 import closeIcon from 'assets/close.svg';
 
 class Settings extends Component {
@@ -41,9 +41,9 @@ class Settings extends Component {
             </CategoryAddSection>
             <h4 className="heading">Category List</h4>
             <ul>
-              {this.props.home.ExpenseList.map(item =>
+              {this.props.home.CategoryList.map(item =>
                 <li>
-                  <div>{item.category} close</div>
+                  <div>{item.category}</div>
                   <ReactSVG className="icon" src={closeIcon} />
                 </li>
               )}
@@ -60,6 +60,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => {
   return {
     addCategory: (data) => dispatch(AddCategory(data)),
+    removeCategory: (data) => dispatch(RemoveCategory(data))
   }
 }
 

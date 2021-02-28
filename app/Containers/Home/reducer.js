@@ -5,21 +5,21 @@ const initialstate = {
       "category": "Grocery",
       "itemName": "Bread",
       "amount": "40",
-      "expenseDate": "25/02/2020"
+      "expenseDate": "2020-02-25"
     },
     {
       "id": 2,
       "category": "Medical",
       "itemName": "Tablets",
       "amount": "150",
-      "expenseDate": "22/02/2020"
+      "expenseDate": "2020-02-22"
     },
     {
       "id": 3,
       "category": "Vegetables",
       "itemName": "General",
       "amount": "250",
-      "expenseDate": "27/02/2020"
+      "expenseDate": "2020-02-27"
     },
     {
       "id": 4,
@@ -33,17 +33,53 @@ const initialstate = {
       "category": "Grocery",
       "itemName": "Eggs",
       "amount": "50",
-      "expenseDate": "20/02/2020"
+      "expenseDate": "2020-02-20"
+    }
+  ],
+  "CategoryList": [
+    {
+      "id": 1,
+      "category": "Grocery",
+    },
+    {
+      "id": 2,
+      "category": "Medical",
+    },
+    {
+      "id": 3,
+      "category": "Miscellaneous",
+    },
+    {
+      "id": 4,
+      "category": "Vegetables",
+    },
+    {
+      "id": 5,
+      "category": "Shopping",
     }
   ]
+
 }
 
 function homereducer(state=initialstate, action) {
   switch (action.type) {
     case "ADD_CATEGORY":
-    const { ExpenseList } = state;
-    ExpenseList.push({ id: ExpenseList.length+1,  ...action.data });
-      return { ...state , ExpenseList };
+    {
+      const { CategoryList } = state;
+      ExpenseList.push({ id: CategoryList.length+1,  ...action.data });
+      return { ...state , CategoryList };
+    }
+    case "ADD_EXPENSE":
+    {
+      const { ExpenseList } = state;
+      ExpenseList.push({ id: ExpenseList.length + 1, ...action.data });
+      return { ...state, ExpenseList};
+    }
+    case "REMOVE_CATEGORY":
+    {
+      const { CategoryList } = state;
+
+    }
     default:
       return state;
   }
